@@ -229,3 +229,26 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+
+// progress bar //
+document.addEventListener("DOMContentLoaded", function () {
+  // Get all progress bars
+  const progressBars = document.querySelectorAll('.progress');
+
+  // Loop through each progress bar and set its width based on the data-progress attribute
+  progressBars.forEach(function(progressBar) {
+    // Get the value from the data-progress attribute
+    let progressValue = progressBar.getAttribute('data-progress');
+    
+    // Find the percentage element above the progress bar and update its text
+    const percentageText = progressBar.parentElement.querySelector('.percentage');
+    percentageText.textContent = progressValue + '%';
+
+    // Set the width of the progress bar to match the percentage after a slight delay
+    setTimeout(function() {
+      progressBar.style.width = progressValue + '%';
+    }, 100); // Add a small delay to ensure animation works on page load
+  });
+});
+// progress bar //
